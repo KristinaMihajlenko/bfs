@@ -10,15 +10,12 @@ inline std::vector<int32_t> seq_bfs(
 {
     std::vector<int32_t> dist(nodes_count, -1);
     dist[start_node] = 0;
-
     std::queue<uint32_t> q;
     q.push(start_node);
-
     while (!q.empty())
     {
         uint32_t from_node = q.front();
         q.pop();
-
         for (uint32_t to_node : edges[from_node])
         {
             if (dist[to_node] == -1)
@@ -28,6 +25,5 @@ inline std::vector<int32_t> seq_bfs(
             }
         }
     }
-
     return dist;
 }
