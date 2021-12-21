@@ -14,7 +14,8 @@
 
 int main()
 {
-    std::vector<std::vector<uint32_t>> edges_three = {
+    std::vector<std::vector<uint32_t>> edges_three = 
+    {
             {1, 3, 9},
             {0, 2, 4, 10},
             {1, 5, 11},
@@ -44,11 +45,13 @@ int main()
             {17, 23, 25}
     };
     std::vector<std::vector<uint32_t>> edges_test = build_cube_graph(3);
-    if (edges_three != edges_test){
+    if (edges_three != edges_test)
+    {
         std::cout << "Wrong cube" << std::endl;
         return 0;
     }
-    else {
+    else 
+    {
         std::cout << "Right cube" << std::endl;
     }
 
@@ -56,12 +59,15 @@ int main()
     pasl::pctl::parray<int32_t> par_bfs_res = par_bfs(27, 0, edges_test);
  
 
-    if (seq_bfs_res.size() != par_bfs_res.size()) {
+    if (seq_bfs_res.size() != par_bfs_res.size()) 
+    {
         std::cout << "Wrong parallel size" << std::endl;
         return 0;
     }
-    for (int32_t i; i < seq_bfs_res.size(); i++){
-        if (seq_bfs_res[i] != par_bfs_res[i]) {
+    for (int32_t i; i < seq_bfs_res.size(); i++)
+    {
+        if (seq_bfs_res[i] != par_bfs_res[i]) 
+        {
             std::cout << "Wrong parallel version" << std::endl;
             return 0;
         }
@@ -74,7 +80,8 @@ int main()
 
     uint64_t par_sum = 0;
     uint64_t seq_sum = 0;
-    for (int32_t i = 0; i < 5; i++) {
+    for (int32_t i = 0; i < 5; i++) 
+    {
         std::chrono::steady_clock::time_point begin_seq = std::chrono::steady_clock::now();
         seq_bfs(nodes_count, 0, edges);
         std::chrono::steady_clock::time_point end_seq = std::chrono::steady_clock::now();
